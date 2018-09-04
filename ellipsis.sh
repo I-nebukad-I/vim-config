@@ -10,7 +10,7 @@ pkg.install() {
 }
 
 pkg.link() {
-	fs.link_rfile .vimrc $HOME/.vimrc
+	fs.link_rfile vimrc $HOME/.vimrc
 }
 
 pkg.uninstall() {
