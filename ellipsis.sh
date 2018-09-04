@@ -5,12 +5,12 @@ pkg.install() {
 	if [ "" == "$PKG_OK" ]; then
   		sudo apt-get --force-yes --yes install vim
 	fi
-
-    vim +PluginInstall +qall
 }
 
 pkg.link() {
 	fs.link_rfile vimrc $HOME/.vimrc
+    
+	vim +PluginInstall +qall
 }
 
 pkg.uninstall() {
