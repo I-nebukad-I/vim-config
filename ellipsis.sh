@@ -9,13 +9,14 @@ pkg.install() {
 
 	# install vundle
 	git.clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-	
-	# install plugins
-	vim +PluginInstall +qall
 }
 
 pkg.link() {
+	# link 
 	fs.link_rfile vimrc $HOME/.vimrc
+	
+	# install plugins
+	vim +PluginInstall +qall
 }
 
 pkg.uninstall() {
