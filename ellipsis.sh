@@ -27,6 +27,10 @@ pkg.install() {
 
 	# install vundle
 	git.clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+}
+
+pkg.link() {
+	fs.link_rfile vimrc $HOME/.vimrc
 	
 	# install plugins
 	vim +PluginInstall +qall -u vimrc
@@ -35,10 +39,6 @@ pkg.install() {
 	if [ -f "$HOME/.vim/bundle/youcompleteme/install.py" ]; then
 		"$HOME/.vim/bundle/youcompleteme/install.py"
 	fi
-}
-
-pkg.link() {
-	fs.link_rfile vimrc $HOME/.vimrc
 }
 
 pkg.uninstall() {
