@@ -36,8 +36,8 @@ pkg.link() {
 	vim +PluginInstall +qall -u vimrc
 
 	# install YouCompleteMe
-	if [ -f "$HOME/.vim/bundle/youcompleteme/install.py" ]; then
-		"$HOME/.vim/bundle/youcompleteme/install.py"
+	if [ -f "$HOME/.vim/bundle/YouCompleteMe/install.py" ]; then
+		"$HOME/.vim/bundle/YouCompleteMe/install.py"
 	fi
 }
 
