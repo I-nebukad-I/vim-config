@@ -4,25 +4,31 @@ pkg.install() {
 	# install vim
 	PKG_OK=$(dpkg-query -W --showformat='${Status}\n' vim|grep "install ok installed")
 	if [ "" == "$PKG_OK" ]; then
-  		sudo apt-get --force-yes --yes install vim
+  		sudo apt-get --allow --yes install vim
 	fi
 
+	# install build-essential
+	PKG_OK=$(dpkg-query -W --showformat='${Status}\n' build-essential|grep "install ok installed")
+	if [ "" == "$PKG_OK" ]; then
+  		sudo apt-get --allow --yes install build-essential
+	fi
+	
 	# install cmake
 	PKG_OK=$(dpkg-query -W --showformat='${Status}\n' cmake|grep "install ok installed")
 	if [ "" == "$PKG_OK" ]; then
-  		sudo apt-get --force-yes --yes install cmake 
+  		sudo apt-get --allow --yes install cmake 
 	fi
 	
 	# install python
 	PKG_OK=$(dpkg-query -W --showformat='${Status}\n' python|grep "install ok installed")
 	if [ "" == "$PKG_OK" ]; then
-  		sudo apt-get --force-yes --yes install python
+  		sudo apt-get --allow --yes install python
 	fi
 	
 	# install python-dev
 	PKG_OK=$(dpkg-query -W --showformat='${Status}\n' python-dev|grep "install ok installed")
 	if [ "" == "$PKG_OK" ]; then
-  		sudo apt-get --force-yes --yes install python-dev
+  		sudo apt-get --allow --yes install python-dev
 	fi
 
 	# install vundle
