@@ -19,6 +19,12 @@ pkg.install() {
   		sudo apt-get --yes install cmake 
 	fi
 	
+	# install ctags
+	PKG_OK=$(dpkg-query -W --showformat='${Status}\n' ctags|grep "install ok installed")
+	if [ "" == "$PKG_OK" ]; then
+  		sudo apt-get --yes install ctags
+	fi
+	
 	# install python
 	PKG_OK=$(dpkg-query -W --showformat='${Status}\n' python|grep "install ok installed")
 	if [ "" == "$PKG_OK" ]; then
