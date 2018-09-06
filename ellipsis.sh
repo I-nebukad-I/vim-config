@@ -43,10 +43,7 @@ pkg.install() {
 
 pkg.link() {
 	# link files
-	mkdir -p $HOME/.vim/after/plugin
 	fs.link_rfile vimrc $HOME/.vimrc
-	fs.link_rfile after/ftplugin/c.vim $HOME/.vim/after/plugin/c.vim	
-	fs.link_rfile after/ftplugin/java.vim $HOME/.vim/after/plugin/java.vim	
 
 	# install plugins
 	vim +PluginInstall +qall -u vimrc
@@ -55,6 +52,11 @@ pkg.link() {
 	if [ -f "$HOME/.vim/bundle/YouCompleteMe/install.py" ]; then
 		"$HOME/.vim/bundle/YouCompleteMe/install.py"
 	fi
+
+	# link file type specific config
+	mkdir -p $HOME/.vim/after/plugin
+	fs.link_rfile after/ftplugin/c.vim $HOME/.vim/after/plugin/c.vim	
+	fs.link_rfile after/ftplugin/java.vim $HOME/.vim/after/plugin/java.vim	
 }
 
 pkg.uninstall() {
