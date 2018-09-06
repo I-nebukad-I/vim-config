@@ -43,6 +43,7 @@ pkg.install() {
 
 pkg.link() {
 	# link files
+	mkdir -p $HOME/.vim/after/plugin
 	fs.link_rfile vimrc $HOME/.vimrc
 	fs.link_rfile after/ftplugin/c.vim $HOME/.vim/after/plugin/c.vim	
 	fs.link_rfile after/ftplugin/java.vim $HOME/.vim/after/plugin/java.vim	
@@ -69,4 +70,5 @@ pkg.uninstall() {
 
 pkg.unlink() {
 	rm -f $HOME/.vimrc
+	rm -f $HOME/.vim/after
 }
